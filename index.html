@@ -9,16 +9,27 @@
         background-color:light-dark(#FBFBFB,#121212);
       }
       #MainTitle{
-        text-align:center;
+        text-align: center;
+      }
+      #MainTitle::before {
+        content: "";
+        position: absolute;
+        left: 7%;
+        bottom: 16px;
+        width: 150px;
+        height: 14px;
+        transform: skew(-12deg) translateX(-50%);
+        background: rgba(238,111,87,0.5);
+        z-index: -1;
       }
     </style>
   </head>
-  
   <body>
     <header id="MainTitle">
       <h1>Welcome to my website</h1>
     </header>
+    <p>Welcome to my website, this website is a portfoli</p>
     <h2>About me:</h2>
-    
+    <p>  </p>
   </body>
 </html>
