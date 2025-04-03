@@ -29,55 +29,43 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
       #name_sticker{
-        width:100%;
-        height:auto;
-        max-height:100%;
-        background-color:#F2F0EF;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
       }
-      .NameDiv{
-        width:95%;
-        height:auto;
-        max-height:50%;
+      .NameDiv, .BirthDayDiv {
+        width: 95%;
+        height: auto;
+        max-height: 50%;
         margin: auto;
-        background-color:#F2F0EF;
-        border:0px solid #F2F0EF;
+        background-color: #F2F0EF;
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 40px rgba(0, 0, 0, 0.19);
         display: grid;
-        align-items: center; 
-        grid-template-columns: 50% 50%;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
       }
       #Name{
         text-align: left;
-        font-size:2em;
+        font-size:1.2em;
         width:100%
         color:#ffffff;
       }
       #NameMarker{ 
         background:#0074B7;
       }
-      .BirthDayDiv{
-        width:95%;
-        height:auto;
-        max-height:50%;
-        margin: auto;
-        background-color:#F2F0EF;
-        border:0px solid #F2F0EF;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
-        display: grid;
-        align-items: center; 
-        grid-template-columns: 50% 50%;
-      }
+      
       #birthday_cake{
-        width:100%;
-        height:auto;
-        max-height:100%;
-        background-color:#F2F0EF;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
       }
       #BirthDayPara{
         text-align: left;
-        font-size:2em;
+        font-size:1.2em;
         width:100%
       }
     </style>
