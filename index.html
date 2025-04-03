@@ -25,7 +25,7 @@
         display:grid;
         align-items:center;
         grid-template-columns:auto;
-        
+        column-gap:5%;2
       }
       #name_sticker{
         width:100%;
@@ -45,8 +45,37 @@
         display: grid;
         align-items: center; 
         grid-template-columns: 50% 50%;
+        
       }
       #Name{
+        text-align: left;
+        font-size:2em;
+        width:100%
+        color:#ffffff;
+      }
+      #NameMarker{ 
+        color:#0074B7;
+      }
+      .BirthDayDiv{
+        width:95%;
+        height:auto;
+        max-height:100%;
+        margin: auto;
+        background-color:#F2F0EF;
+        border:0px solid #F2F0EF;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        align-items: center; 
+        grid-template-columns: 50% 50%;
+      }
+      #birthday_cake{
+        width:100%;
+        height:auto;
+        max-height:100%;
+        background-color:#F2F0EF;
+      }
+      #BirthDayPara{
         text-align: left;
         font-size:2em;
         width:100%
@@ -60,14 +89,23 @@
     <h2>Hello, here are some facts about me:</h2>
     <div class="introDiv">
       <div class="NameDiv">
-        <p id="Name">My full name is: Poh Jun Zhe Matthew. However, you can call me Matthew Poh.</p>
+        <p id="Name"><mark id="NameMarker">My full name is: Poh Jun Zhe Matthew. However, you can call me Matthew Poh.</mark></p>
         <img src="Name_sticker.png" id="name_sticker"></img>
       </div>
-      <div class="">
-        
+      <div class="BirthDayDiv">
+        <p id="BirthDayPara">I was born in 2012.</p>
+        <img src="birthday-cake.png" id="birthday_cake"></img>
       </div>
     </div>
     <script>
+      //birthDayScript
+      const BirthDayPara = document.getElementById("BirthDayPara");
+      setInterval(()=>{
+        const d = new Date();
+        let year = d.getFullYear();
+        let diff = year-2012;
+        BirthDayPara.innerHTML="I was born in 2012. I am now"+diff.toString()+" years old";
+      },0)
     </script>
   </body>
 </html>
