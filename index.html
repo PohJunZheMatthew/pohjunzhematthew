@@ -112,7 +112,7 @@
       </div>
       <div class="profileDiv">
         <img id="profilePic"> </img>
-        <p id ="profilePara">This is my <a herf="https://github.com/PohJunZheMatthew">GitHub account</a>.</p>
+        <p id ="profilePara">This is my <a href="https://github.com/PohJunZheMatthew">GitHub account</a>.</p>
       </div>
     </div>
     <div class="ConstructionSignDiv">
@@ -129,13 +129,17 @@
       },0)
       //Profile Script
       const profilePic = document.getElementById("profilePic");
-      try{
-        const response = await fetch("https://api.github.com/users/PohJunZheMatthew");
-        const profile = await response.json();
-        profilePic.src = profile.avatar_url;
-      }catch(error){
-        
+      
+      async function setProfilePicture(){
+        try{
+          const response = await fetch("https://api.github.com/users/PohJunZheMatthew");
+          const profile = await response.json();
+          profilePic.src = profile.avatar_url;
+        }catch(error){
+          
+        }
       }
+      window.onload = setProfilePicture();
     </script>
   </body>
 </html>
