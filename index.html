@@ -47,12 +47,12 @@
         max-height: 100%;
         border-radius: 8px;
       }
-      .NameDiv, .BirthDayDiv,.HobbyDiv{
+      .NameDiv, .BirthDayDiv,.HobbyDiv,.profileDiv{
             width: 95%;
             height: auto;
             max-height: 40%;
             margin: auto;
-            background-color: light-dark(#F2F0EF,#CBCBCB);
+            background-color:#F2F0EF;
             border-radius: 10px;
             border: 5px solid black;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 40px rgba(0, 0, 0, 0.19);
@@ -110,6 +110,10 @@
         <p id="HobbyPara">My favourite hobby:Coding in Java</p>
         <img src="http://cr.openjdk.java.net/~jeff/Duke/png/Hips.png" id="Duke"></img>
       </div>
+      <div class="profileDiv">
+        <img> id="profilePic"</img>
+        <p id ="profilePara">This is my <a herf="https://github.com/PohJunZheMatthew">GitHub account</a>.</p>
+      </div>
     </div>
     <div class="ConstructionSignDiv">
       <img src="Construction_sign.png" id ="Construction_sign"></img>
@@ -123,6 +127,15 @@
         let diff = year-2012;
         BirthDayPara.innerHTML="I was born in 2012. I am now "+diff.toString()+" years old";
       },0)
+      //Profile Script
+      const profilePic = document.getElementById("profilePic");
+      try{
+        const response = await fetch("https://api.github.com/users/PohJunZheMatthew");
+        const profile = await response.json();
+        profilePic.src = profile.avatar_url;
+      }catch(error){
+        
+      }
     </script>
   </body>
 </html>
