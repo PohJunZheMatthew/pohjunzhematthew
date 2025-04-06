@@ -87,7 +87,7 @@
       }
       #profilePic{    
         object-fit: cover;
-        width: 20%;
+        width: 30%;
         height: auto;
         max-height: fit-content;
         border-radius: 100%;
@@ -100,8 +100,9 @@
         max-height:100%;
       }
       #profileDetailsDiv{
-        background-color:#24272c;
-        border-radius:15px;
+        display:flex;
+        background-color: #24272c;
+        border-radius: 10px 0px 0px 10px;
       }
     </style>
   </head>
@@ -124,11 +125,15 @@
         <img src="http://cr.openjdk.java.net/~jeff/Duke/png/Hips.png" id="Duke"></img>
       </div>
       <div class="profileDiv">
-        <p id ="profilePara"><mark>This is my <a href="https://github.com/PohJunZheMatthew">GitHub account:</a>.</mark></p>
+        <p id ="profilePara"><mark>This is my <a href="https://github.com/PohJunZheMatthew">GitHub account:</a></mark></p>
         <div id="profileDetailsDiv">
+          <div style="
+            width: 50%;
+          ">
           <p id="profileName"></p>
           <p id="profileBio"></p>
           <p id="profileCreationDate"></p>
+          </div>
           <img id="profilePic"> </img>
         </div>
       </div>
