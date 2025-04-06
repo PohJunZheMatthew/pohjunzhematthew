@@ -1,4 +1,4 @@
-1<html>
+<html>
   <head>
     <title>PohJunZheMatthew's website</title>
     <style>
@@ -37,6 +37,7 @@
         width: 100%;
         display: list-item;
         align-items: center;
+        background-color:light-dark(#ffffff,#696969);
         border: 2px solid #121212;
         border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -133,7 +134,7 @@
         const d = new Date();
         let year = d.getFullYear();
         let diff = year-2012;
-        BirthDayPara.innerHTML="I was born in 2012. I am now "+diff.toString()+" years old";
+        BirthDayPara.innerHTML="<mark>I was born in 2012. I am now "+diff.toString()+" years old</mark>";
       },0)
       //Profile Script
       const profilePic = document.getElementById("profilePic");
