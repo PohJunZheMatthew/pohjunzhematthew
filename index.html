@@ -420,13 +420,13 @@
           const repos = await responseFromRepoUrl.json();
           const repoContainer = document.getElementById("App_RepoDiv");
           for (var i = 0;i<repos.length;i++){
-            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+"><<a href="+repos[i].html_url+">"+repos[i].name+"</a></div>"
+            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+"><a href="+repos[i].html_url+">"+repos[i].name+"</a></div>"
           }
         }catch(error){
           
         }
       }
-      window.addEventListener("onload",setupRepos)
+      window.addEventListener("load",setupRepos)
     </script>
   </body>
 </html>
