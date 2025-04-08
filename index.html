@@ -137,6 +137,9 @@
     </style>
   </head>
   <body>
+    <header id="MainHeaderBar" style="width:100%;height:10%;border-radius:10px;border: 2px solid light-dark(#121212,#ffffff);">
+      <h1 id="MainHeaderBarH1">pohjunzhematthew.github.io/pohjunzhematthew</h1>
+    </header>
     <header id="MainTitle">
       <h1 id="MainTitleH1">Welcome to my website</h1>
     </header>
@@ -448,7 +451,7 @@
             if (i==(repos.length-1)){
               style = "border-radius : 0px 0px 10px 10px;";
             }
-            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+" style='flex-grow: 2;text-align: center;font-size:1em;'>"+repos[i].name+"</a><p style='flex-grow: 2' >Description:"+description+"</p><p style='flex-grow: 1'>Language:"+language+".</p></div>";
+            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+" style='flex-grow: 2;font-size:1em;'>"+repos[i].name+"</a><p style='flex-grow: 2' >Description:"+description+"</p><p style='flex-grow: 1'>Language:"+language+".</p></div>";
           }
         }catch(error){
           
