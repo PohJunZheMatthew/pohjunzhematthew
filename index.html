@@ -81,7 +81,7 @@
       #BirthDayPara,#HobbyPara,#profilePara{
         text-align:left;
         font-size:2.5em;
-        width:50%
+        width:50%;
         color:#000000;
       }
       #profilePic{    
@@ -427,8 +427,8 @@
       const ASCII = document.getElementById("ConstructionSignASCII");
       setInterval(()=>{
         let fontSize = window.innerWidth/400;
-        ASCII.style.fontSize=fontSize.toString();
-        console.log(fontSize)
+        console.log(ASCII);
+        ASCII.style.fontSize = fontSize.toString();
       },0)
       //Repo/App script
       async function setupRepos(){
