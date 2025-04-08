@@ -43,9 +43,6 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
-      .introDiv>p{
-        color:#000000;
-      }
       #name_sticker{    
         width:auto;
         max-width: 30%;
@@ -67,6 +64,7 @@
         text-align: left;
         font-size:2.5em;
         width:50%;
+        color:#000000;
       }
       #birthday_cake{    
         max-width: 20%;
@@ -84,6 +82,7 @@
         text-align:left;
         font-size:2.5em;
         width:50%
+        color:#000000;
       }
       #profilePic{    
         object-fit: cover;
@@ -429,6 +428,7 @@
       setInterval(()=>{
         let fontSize = window.innerWidth/400;
         ASCII.style.fontSize=fontSize.toString();
+        console.log(fontSize)
       },0)
       //Repo/App script
       async function setupRepos(){
