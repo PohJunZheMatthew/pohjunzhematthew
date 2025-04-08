@@ -38,7 +38,7 @@
         display: list-item;
         align-items: center;
         background-color:light-dark(#ffffff,#696969);
-        border: 2px solid light-dark(#ffffff,#121212);
+        border: 2px solid light-dark(#121212,#ffffff);
         border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
@@ -107,13 +107,21 @@
         color:white;
       }
       .RepoDivs{
-        width: 95%;
+        width: 100%;
         height: auto;
         max-height: 40%;
         margin: auto;
-        background-color:#146C94;
-        border-radius: 10px;
-        border: 5px solid black;
+        background-color:#41729F;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 40px rgba(0, 0, 0, 0.19);
+        display: flex;
+      }
+      #App_RepoDiv2{
+        width: 100%;
+        height: auto;
+        max-height: 40%;
+        margin: auto;
+        background-color:#41729F;
+        border-radius:10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 40px rgba(0, 0, 0, 0.19);
         display: flex;
       }
@@ -151,9 +159,11 @@
         </div>
       </div>
     </div>
-    <div id="App_RepoDiv">
+    <div id="App_RepoDiv1">
       <h2>Application(s)/Repo(s)</h2>
-      
+      <div class="App_RepoDiv2" id="App_RepoDiv2">
+        
+      </div>
     </div>
     <pre id="ConstructionSignASCII">
 .................................................................................................=%@@@@@@@@@#=--------------#@@@@@+:............................................................................................................................................................................................................................................................................
@@ -418,7 +428,7 @@
           const repos_url = profile.repos_url;
           const responseFromRepoUrl = await fetch(repos_url);
           const repos = await responseFromRepoUrl.json();
-          const repoContainer = document.getElementById("App_RepoDiv");
+          const repoContainer = document.getElementById("App_RepoDiv2");
           for (var i = 0;i<repos.length;i++){
             repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+"><a href="+repos[i].html_url+">"+repos[i].name+"</a></div>"
           }
