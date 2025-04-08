@@ -440,10 +440,11 @@
               style = "border-radius : 10px 10px 0px 0px;";
               console.log(style)
             }
+            console.log(repos.length-1)
             if (i==(repos.length-1)){
               style = "border-radius : 0px 0px 10px 10px;";
             }
-            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style="+style+"><a href="+repos[i].html_url+">"+repos[i].name+"</a><p>"+description+"</p><p>"+language+"</p></div>";
+            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+">"+repos[i].name+"</a><p>"+description+"</p><p>"+language+"</p></div>";
           }
         }catch(error){
           
