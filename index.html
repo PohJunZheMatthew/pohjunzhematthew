@@ -427,7 +427,7 @@
       setInterval(()=>{
         let fontSize = window.innerWidth/400;
         const ASCII = document.getElementById("ConstructionSignASCII");
-        ASCII.style.fontSize = fontSize.toString();
+        ASCII.style.fontSize = fontSize.toString()+"px";
       },0)
       //Repo/App script
       async function setupRepos(){
@@ -448,7 +448,7 @@
             if (i==(repos.length-1)){
               style = "border-radius : 0px 0px 10px 10px;";
             }
-            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+" style='flex-grow: 2'>"+repos[i].name+"</a><p style='flex-grow: 2' >Description:"+description+"</p><p style='flex-grow: 1'>Language:"+language+".</p></div>";
+            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+" style='flex-grow: 2;text-align: center;font-size:1em;'>"+repos[i].name+"</a><p style='flex-grow: 2' >Description:"+description+"</p><p style='flex-grow: 1'>Language:"+language+".</p></div>";
           }
         }catch(error){
           
