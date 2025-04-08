@@ -33,7 +33,7 @@
         font-size:4em;
         border-bottom: 3px solid #f9dd94;
       }
-      .introDiv,#App_RepoDiv{ 
+      .introDiv,#App_RepoDiv1{ 
         width: 100%;
         display: list-item;
         align-items: center;
@@ -430,7 +430,12 @@
           const repos = await responseFromRepoUrl.json();
           const repoContainer = document.getElementById("App_RepoDiv2");
           for (var i = 0;i<repos.length;i++){
-            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+"><a href="+repos[i].html_url+">"+repos[i].name+"</a></div>"
+            let description = repos[i].description;
+            if (description==null){
+              description = "";
+            }
+            let language = repos[i].language;
+            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+"><a href="+repos[i].html_url+">"+repos[i].name+"</a><p>"+description+"</p><p>"+language+"</p></div>"
           }
         }catch(error){
           
