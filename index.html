@@ -1,4 +1,5 @@
-2<html>
+<!doctype html>
+<html>
   <head>
     <title>PohJunZheMatthew's website</title>
     <style>
@@ -33,7 +34,7 @@
         font-size:4em;
         border-bottom: 3px solid #f9dd94;
       }
-      .introDiv,#App_RepoDiv1{ 
+      .introDiv{ 
         width: 100%;
         display: list-item;
         align-items: center;
@@ -125,6 +126,15 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 40px rgba(0, 0, 0, 0.19);
         display:list-item;
       }
+      #App_RepoDiv1{
+        width: 100%;
+        display: list-item;
+        align-items: center;
+        background-color:light-dark(#ffffff,#0e1116);
+        border: 2px solid light-dark(#121212,#ffffff);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
     </style>
   </head>
   <body>
@@ -160,7 +170,7 @@
       </div>
     </div>
     <div id="App_RepoDiv1">
-      <h2>Application(s)/Repo(s)</h2>
+      <p>Application(s)/Repo(s):</p>
       <div class="App_RepoDiv2" id="App_RepoDiv2">
         
       </div>
@@ -436,15 +446,10 @@
             }
             let language = repos[i].language;
             let style = "";
-            if (i==0){
-              style = "border-radius : 10px 10px 0px 0px;";
-              console.log(style)
-            }
-            console.log(repos.length-1)
             if (i==(repos.length-1)){
               style = "border-radius : 0px 0px 10px 10px;";
             }
-            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+">"+repos[i].name+"</a><p>"+description+"</p><p>"+language+"</p></div>";
+            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+" style='flex-grow: 2'>"+repos[i].name+"</a><p style='flex-grow: 2' >Description:"+description+"</p><p style='flex-grow: 1'>Language:"+language+".</p></div>";
           }
         }catch(error){
           
