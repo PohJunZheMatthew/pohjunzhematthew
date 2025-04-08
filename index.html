@@ -424,10 +424,9 @@
       }
       window.onload = setProfilePicture();
       //ASCII script
-      const ASCII = document.getElementById("ConstructionSignASCII");
       setInterval(()=>{
         let fontSize = window.innerWidth/400;
-        console.log(ASCII);
+        const ASCII = document.getElementById("ConstructionSignASCII");
         ASCII.style.fontSize = fontSize.toString();
       },0)
       //Repo/App script
