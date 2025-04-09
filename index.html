@@ -519,17 +519,17 @@
       menuButton.onclick = (event)=>{
         if (open){
           menuImg.src = "icon_menu.png";
-          Menu.classList.add("AnimDownClass");
+          Menu.classList.add("AnimUpClass");
           setTimeout(()=>{
-            Menu.classList.remove("AnimDownClass");
+            Menu.classList.remove("AnimUpClass");
             Menu.style.display = "none";
             open = false;
           },500)
         }else{
           menuImg.src = "icon_close.png";
-          Menu.classList.add("AnimUpClass");
+          Menu.classList.add("AnimDownClass");
           setTimeout(()=>{
-            Menu.classList.remove("AnimUpClass");
+            Menu.classList.remove("AnimDownClass");
             Menu.style.display = "flex";
             open = true;
           },500)
