@@ -455,7 +455,7 @@
             if (i==(repos.length-1)){
               style = "border-radius : 0px 0px 10px 10px;";
             }
-            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+" style='text-decoration: none !important;flex-grow: 2;font-size:1em;'>"+repos[i].name+"</a><p style='flex-grow: 2' >Description:"+description+"</p><p style='flex-grow: 1'>Language:"+language+".</p></div>";
+            repoContainer.innerHTML += "<div class='RepoDivs' id='RepoDivs'"+i.toString()+" style='"+style+"'><a href="+repos[i].html_url+" style='text-decoration: none !important;flex-grow: 2;font-size:1em;color:#ffffff;'>"+repos[i].name+"</a><p style='flex-grow: 2;color:#ffffff;' >Description:"+description+"</p><p style='flex-grow: 1;color:#ffffff;'>Language:"+language+".</p></div>";
           }
         }catch(error){
           
