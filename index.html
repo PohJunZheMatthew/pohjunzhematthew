@@ -134,19 +134,22 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
-      .AnimUpClass{
-        animation: moveUpAnimMenu 0.5s;
+      .AnimUpClass {
+        animation: moveUpAnimMenu 0.5s forwards;
       }
-      .AnimDownClass{
-        animation: moveDownAnimMenu 0.5s;
+      
+      .AnimDownClass {
+        animation: moveDownAnimMenu 0.5s forwards;
       }
-      @keyframes moveUpAnimMenu{
-        from{top:10.5vh;}
-        to{top:-100.5vh;}
+      
+      @keyframes moveUpAnimMenu {
+        from { top: 10.5vh; }
+        to { top: -100.5vh; }
       }
-      @keyframes moveDownAnimMenu{
-        from{top:-100.5vh;}
-        to{top:10.5vh;}
+      
+      @keyframes moveDownAnimMenu {
+        from { top: -100.5vh; }
+        to { top: 10.5vh; }
       }
     </style>
   </head>
@@ -511,31 +514,32 @@
         }
       }
       window.addEventListener("load",setupRepos);
-      //MenuScript
+      //Menu script
       const menuButton = document.getElementById("MenuBtn");
       const menuImg = document.getElementById("MenuImg");
       const Menu = document.getElementById("MenuNav");
       let open = false;
-      menuButton.onclick = (event)=>{
-        if (open){
+      
+      menuButton.onclick = () => {
+        if (open) {
           menuImg.src = "icon_menu.png";
           Menu.classList.add("AnimUpClass");
-          setTimeout(()=>{
+          setTimeout(() => {
             Menu.classList.remove("AnimUpClass");
             Menu.style.display = "none";
             open = false;
-          },500)
-        }else{
+          }, 500);
+        } else {
           menuImg.src = "icon_close.png";
-          Menu.style.top = "10.5vh";
+          Menu.style.display = "flex"; // show first
           Menu.classList.add("AnimDownClass");
-          setTimeout(()=>{
+          setTimeout(() => {
             Menu.classList.remove("AnimDownClass");
-            Menu.style.display = "flex";
             open = true;
-          },500)
+          }, 500);
         }
       };
+
     </script>
   </body>
 </html>
