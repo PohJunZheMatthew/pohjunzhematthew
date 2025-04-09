@@ -33,12 +33,14 @@
     .flip-box-front {
         background-color: red;
         color:rgb(255, 213, 213);
+        border:2px solid black;
     }
 
     .flip-box-back {
       background-color: red;
       color: rgb(255, 213, 213);
       transform: rotateX(180deg);
+      border:2px solid black;
     }
   </style>
 </head>
@@ -46,11 +48,11 @@
   <div class="flip-box">
     <div class="flip-box-inner" id="flipper">
       <div class="flip-box-front">
-        <h2>Error 404:Page not found</h2>
+        <h1>Error 404:Page not found</h1>
         <a href="https://pohjunzhematthew.github.io/pohjunzhematthew/"style="text-decoration: none;!important;color:rgb(255, 213, 213)">Please return to the main Page</a>
       </div>
       <div class="flip-box-back">
-        <h2>Error 404:Page not found</h2>
+        <h1>Error 404:Page not found</h1>
         <a href="https://pohjunzhematthew.github.io/pohjunzhematthew/" style="text-decoration: none;!important;color:rgb(255, 213, 213);">Please return to the main Page</a>
       </div>
     </div>
@@ -58,7 +60,7 @@
   <script>
     const flipper = document.getElementById('flipper');
     let angle = 0;
-    document.getElementsByClassName("flip-box")[0].style.height = innerHeight*0.5+"px";
+    document.getElementsByClassName("flip-box")[0].style.height = innerHeight*0.8+"px";
     setInterval(() => {
       angle = (angle + 1) % 360;
       flipper.style.transform = `rotateX(${angle}deg)`;
