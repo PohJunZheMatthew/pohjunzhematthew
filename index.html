@@ -145,8 +145,8 @@
         height: 100%;
         padding: 0;
         display: flex;
-        align-items: center;">
-        <img src="icon_menu.png" alt="Menu" style="height: 80%;">
+        align-items: center;" id="MenuBtn">
+        <img src="icon_menu.png" alt="Menu" style="height: 80%;" id="MenuImg">
       </button>
     
       <h1 style="margin: auto; font-size: 1.5rem;">
@@ -167,11 +167,11 @@
         background-color: light-dark(#ffffff, #000000);
         border-right: 2px solid light-dark(#000000, #ffffff);
         border-left: 2px solid light-dark(#000000, #ffffff);
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         padding-top: 2rem;
-        box-shadow: 4px 0 10px rgba(0,0,0,0.1)；">
+        box-shadow: 4px 0 10px rgba(0,0,0,0.1)；" id="MenuNav">
   <a href="#home" style="text-decoration: none; color: inherit; margin: 1rem 0;">Home</a>
   <a href="#profile" style="text-decoration: none; color: inherit; margin: 1rem 0;">Profile</a>
   <a href="#projects" style="text-decoration: none; color: inherit; margin: 1rem 0;">Projects</a>
@@ -494,7 +494,23 @@
           
         }
       }
-      window.addEventListener("load",setupRepos)
+      window.addEventListener("load",setupRepos);
+      //MenuScript
+      const menuButton = document.getElementById("MenuBtn");
+      const menuImg = document.getElementById("MenuImg");
+      const Menu = document.getElementById("MenuNav");
+      let open = false;
+      menuButton.onclick = (event)=>{
+        if (open){
+          menuImg.src = "icon_menu.png";
+          Menu.style.display = "none";
+          open = false;
+        }else{
+          menuImg.src = "icon_close.png";
+          Menu.style.display = "flex";
+          open = true;
+        }
+      };
     </script>
   </body>
 </html>
