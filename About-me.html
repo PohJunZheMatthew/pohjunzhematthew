@@ -111,29 +111,72 @@
       <li>Lastly, it is one of my most favourite game (Minecraft) programming language</li>
     </ul>
     <H3>Back to beginnings</H3>
-    <p>  All right back to talking about my beginnings, I started learning basic syntax and stuff.Simple program:<br>
+    <p>  All right back to talking about my beginnings, I started learning basic syntax and stuff. A simple program showing some basic programming in Java :<br>
       <pre>
       <code>
-        Main.java
-        public class Main{
-          static void main(String[] args){
-            //Basic hello world program
-            System.out.println("Hello,world");
-            //OUTPUT:
-            //Hello,world
-            //Basic addition
-            int x = 1;
-            int y = 2;
-            System.out.println(x+y);//3
-            //Basic subtraction
-            System.out.println(y-x);//1
-            //Basic Multiplication
-            System.out.println(x*y);//2
-            //Basic division
-            System.out.println(x/y);//0.5
-          }
-        }
+Main.java
+public class Main{
+  static void main(String[] args){
+    //Basic hello world program
+    System.out.println("Hello,world");
+    //OUTPUT:
+    //Hello,world
+    //Basic addition
+    int x = 1;
+    int y = 2;
+    System.out.println(x+y);//3
+    //Basic subtraction
+    System.out.println(y-x);//1
+    //Basic Multiplication
+    System.out.println(x*y);//2
+    //Basic division
+    System.out.println(x/y);//0.5
+  }
+}
       </code>
-      </pre><br></p>
+      </pre><br>I soon learnt some basic Java GUI like Java awt and swing. A simple program showing a Java awt Frame and a Java swing frame Both saying Hello world<br>
+  <pre>
+  <code>
+import java.awt.*;
+public class Main {
+    public static void main(String[] args) {
+        Frame frame = new Frame();
+        Label label = new Label("Hello world");
+        frame.setSize(100,100);
+        frame.add(label);
+        frame.setVisible(true);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+            }
+        });
+        JFrame jFrame = new JFrame();
+        JLabel jLabel = new JLabel("Hello world");
+        jFrame.add(jLabel);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setSize(100,100);
+        jFrame.setVisible(true);
+    }
+}
+  </code>
+  </pre>Not before long, it was 2023, and I was primary 5🥳.Soon, I learnt the python programming language a simple programming language that is easy to pick up. Simple program showcasing the basics of python.<br>
+  <pre>
+  <code>
+#Hello,world
+print("Hello,world")
+#Addition
+x = 1
+y = 2
+print(x+y)#3
+#Subtraction
+print(y-x)#1
+#Multiplication
+print(x*y)#2
+#Divition
+print(x/y)#0.5
+  </code>
+  </pre>
+  <br></p>
   </body>
 </html>
