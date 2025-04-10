@@ -170,11 +170,26 @@
     
     </header>
   <nav style="position: fixed;top: 10.5vh;left: 0;height: 89.5vh;width: 15%;background-color: light-dark(#ffffff, #000000);border: 2px solid light-dark(#000000, #ffffff);display: none;flex-direction: column;align-items: center;padding-top: 2rem;box-shadow: 4px 0 10px rgba(0,0,0,0.1)；animation-timing-function: linear;" id="MenuNav">
-  <a href="#home" style="text-decoration: none; color: inherit; margin: 1rem 0;">Home</a>
-  <a href="#profile" style="text-decoration: none; color: inherit; margin: 1rem 0;">Profile</a>
+  <input type="search" id="SearchMenu" placeholder="Search...">
+  <a href="https://pohjunzhematthew.github.io/pohjunzhematthew/" style="text-decoration: none; color: inherit; margin: 1rem 0;">Home</a>
+  <a href="https://pohjunzhematthew.github.io/pohjunzhematthew/About-me.html" style="text-decoration: none; color: inherit; margin: 1rem 0;">About me</a>
   <a href="#projects" style="text-decoration: none; color: inherit; margin: 1rem 0;">Projects</a>
   <a href="#contact" style="text-decoration: none; color: inherit; margin: 1rem 0;">Contact</a>
-
+  <script>
+    setInterval(()=>{
+      const search = document.getElementById("SearchMenu")
+      const nav = search.parentElement;
+      for (const child of nav.children){
+        if (child != search){
+          if (child.innerHTML.includes(search.value)){
+            child.style.display = "block";
+          }else{
+            child.style.display = "none";
+          }
+        }
+      }
+    },0)
+  </script>
 </nav>
     <header id="MainTitle">
       <h1 id="MainTitleH1">Welcome to my website</h1>
