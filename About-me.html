@@ -12,11 +12,14 @@
   </head>
   <body>
     <script>
-      try{
-        const response = await fetch("https://raw.githubusercontent.com/PohJunZheMatthew/pohjunzhematthew/refs/heads/main/Nav-menu.html");
-        const elements = await response.text();
-        document.body.innerHTML = elements + document.body.innerHTML;
-      }catch(error){}
+      async function load(){
+        try{
+          const response = await fetch("https://raw.githubusercontent.com/PohJunZheMatthew/pohjunzhematthew/refs/heads/main/Nav-menu.html");
+          const elements = await response.text();
+          document.body.innerHTML = elements + document.body.innerHTML;
+        }catch(error){}
+      }
+      window.addEventListener("load",load)
     </script>
     <header id="MainTitle" style="
         text-align: center;
