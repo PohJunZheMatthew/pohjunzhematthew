@@ -114,8 +114,8 @@
       const emailText = document.getElementById("Email");
       function copyEmail(){
         console.log("copying");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
+        emailText.select();
+        emailText.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(emailText.innerHTML);
         document.getElementById("copyEmailToolTip").innerHTML="Copied:D";
         console.log("copied");
