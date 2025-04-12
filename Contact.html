@@ -113,10 +113,12 @@
       const copyEmailButton = document.getElementById("copyButton");
       const emailText = document.getElementById("Email");
       async function copyEmail(){
-        console.log("copying");
-        let result = await navigator.clipboard.writeText(emailText.innerHTML);
-        document.getElementById("copyEmailToolTip").innerHTML="Copied:D";
-        console.log("copied");
+        try{
+          console.log("copying");
+          let result = await navigator.clipboard.writeText(emailText.innerHTML);
+          document.getElementById("copyEmailToolTip").innerHTML="Copied:D";
+          console.log("copied");
+        }catch(Error){}
       }
       copyEmailButton.addEventListener("click",copyEmail)
     </script>
