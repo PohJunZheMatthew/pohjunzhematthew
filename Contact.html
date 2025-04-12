@@ -61,7 +61,11 @@
       <h1 style="padding-top: 10vh;">Contact</h1>
     </header>
     <h3>Email:</h3>
-    <div id="emailDiv">
+    <div id="emailDiv" style="
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;">
       <a href="mailto:poh_jun_zhe_matthew@s2025.ssts.edu.sg" id="Email">poh_jun_zhe_matthew@s2025.ssts.edu.sg</a>
       <style>
         #copyButton {
@@ -108,7 +112,11 @@
     <script>
       const copyEmailButton = document.getElementById("copyButton");
       const emailText = document.getElementById("Email");
-      copyEmailButton.addEventListener("click",(event)=>{navigator.clipboard.writeText(emailText.innerHTML);document.getElementById("copyEmailToolTip").innerHTML="Copied:D";})
+      function copyEmail(){
+        navigator.clipboard.writeText(emailText.innerHTML);
+        document.getElementById("copyEmailToolTip").innerHTML="Copied:D";
+      }
+      copyEmailButton.addEventListener("click",copyEmail)
     </script>
   </body>
 </html>
