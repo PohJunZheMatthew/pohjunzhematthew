@@ -1,0 +1,116 @@
+<style>
+      .AnimUpClass {
+        animation: moveUpAnimMenu 0.5s forwards;
+      }
+      
+      .AnimDownClass {
+        animation: moveDownAnimMenu 0.5s forwards;
+      }
+      
+      @keyframes moveUpAnimMenu {
+        from { top: 10.5vh; }
+        to { top: -100.5vh; }
+      }
+      
+      @keyframes moveDownAnimMenu {
+        from { top: -100.5vh; }
+        to { top: 10.5vh; }
+      }
+      #SearchMenu {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.5em 1em;
+        font-size: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 999px;
+        outline: none;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        background-color: #fff;
+        color: #000;
+      }
+      
+      #SearchMenu::placeholder {
+        color: #888;
+      }
+      
+      #SearchMenu:focus {
+        border-color: #f9dd94;
+        box-shadow: 0 0 5px 2px rgba(249, 221, 148, 0.5);
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        #SearchMenu {
+          background-color: #222;
+          color: #fff;
+          border: 2px solid #444;
+        }
+      
+        #SearchMenu::placeholder {
+          color: #aaa;
+        }
+      
+        #SearchMenu:focus {
+          border-color: #f9dd94;
+          box-shadow: 0 0 5px 2px rgba(249, 221, 148, 0.3);
+        }
+      }
+</style>
+<header id="MainHeaderBar" style="width: 100%;height: 10vh;position:fixed;top: 0;left:0;background-color: light-dark(#ffffff, #000000);display: flex;align-items: center;justify-content: space-between;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);border: 2px solid light-dark(#000000, #FFFEFF);">
+        <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="MenuBtn">
+          <img src="icon_menu.png" alt="Menu" style="height: 80%;" id="MenuImg">
+        </button>
+        <h1 style="margin: auto; font-size: 1.5rem;">
+          <a href="https://pohjunzhematthew.github.io/pohjunzhematthew/" style="
+            text-decoration: none;
+            color: inherit;
+            border-bottom: 3px solid #f9dd94;
+          ">https://pohjunzhematthew.github.io/pohjunzhematthew/</a>
+        </h1>
+      </header>
+      <nav style="position: fixed;top: 10.5vh;left: 0;height: 89.5vh;width: 15%;background-color: light-dark(#ffffff, #000000);border: 2px solid light-dark(#000000, #ffffff);display: none;flex-direction: column;align-items: center;padding-top: 2rem;box-shadow: 4px 0 10px rgba(0,0,0,0.1)；animation-timing-function: linear;" id="MenuNav">
+        <input type="search" id="SearchMenu" placeholder="Search...">
+        <a href="https://pohjunzhematthew.github.io/pohjunzhematthew/" style="text-decoration: none; color: inherit; margin: 1rem 0;">Home</a>
+        <a href="https://pohjunzhematthew.github.io/pohjunzhematthew/About-me.html" style="text-decoration: none; color: inherit; margin: 1rem 0;">About me</a>
+        <a href="#projects" style="text-decoration: none; color: inherit; margin: 1rem 0;">Projects</a>
+        <a href="#contact" style="text-decoration: none; color: inherit; margin: 1rem 0;">Contact</a>
+      </nav>
+      <script>
+        setInterval(()=>{
+          const search = document.getElementById("SearchMenu")
+          const nav = search.parentElement;
+          for (const child of nav.children){
+            if (child != search){
+              if (child.innerHTML.includes(search.value)){
+                child.style.display = "block";
+              }else{
+                child.style.display = "none";
+              }
+            }
+          }
+        },0)
+      //Menu script
+      const menuButton = document.getElementById("MenuBtn");
+      const menuImg = document.getElementById("MenuImg");
+      const Menu = document.getElementById("MenuNav");
+      let open = false;
+      
+      menuButton.onclick = () => {
+        if (open) {
+          menuImg.src = "icon_menu.png";
+          Menu.classList.add("AnimUpClass");
+          setTimeout(() => {
+            Menu.classList.remove("AnimUpClass");
+            Menu.style.display = "none";
+            open = false;
+          }, 500);
+        } else {
+          menuImg.src = "icon_close.png";
+          Menu.style.display = "flex"; // show first
+          Menu.classList.add("AnimDownClass");
+          setTimeout(() => {
+            Menu.classList.remove("AnimDownClass");
+            open = true;
+          }, 500);
+        }
+      };
+    </script>
