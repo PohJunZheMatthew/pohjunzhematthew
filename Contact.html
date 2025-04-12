@@ -112,7 +112,7 @@
     <script>
       const copyEmailButton = document.getElementById("copyButton");
       const emailText = document.getElementById("Email");
-      function copyEmail(){
+      async function copyEmail(){
         console.log("copying");
         navigator.clipboard.writeText(emailText.innerHTML);
         document.getElementById("copyEmailToolTip").innerHTML="Copied:D";
