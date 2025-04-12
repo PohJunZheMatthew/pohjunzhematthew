@@ -58,9 +58,57 @@
       window.addEventListener("DOMContentLoaded", load);
     </script>
     <header>
-      <h1>Contact</h1>
+      <h1 style="padding-top: 10vh;">Contact</h1>
     </header>
     <h3>Email:</h3>
-    <a href="mailto:poh_jun_zhe_matthew@s2025.ssts.edu.sg">poh_jun_zhe_matthew@s2025.ssts.edu.sg</a>
+    <div id="emailDiv">
+      <a href="mailto:poh_jun_zhe_matthew@s2025.ssts.edu.sg" id="Email">poh_jun_zhe_matthew@s2025.ssts.edu.sg</a>
+      <style>
+        #copyButton {
+          position: relative;
+          display: inline-block;
+          border-bottom: 1px dotted black;
+        }
+        
+        #copyButton .tooltiptext {
+          visibility: hidden;
+          width: 120px;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px 0;
+          position: absolute;
+          z-index: 1;
+          bottom: 125%;
+          left: 50%;
+          margin-left: -60px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+        
+        #copyButton .tooltiptext::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #555 transparent transparent transparent;
+        }
+        
+        #copyButton:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+      </style>
+      <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button> 
+    </div>
+    <script>
+      const copyEmailButton = document.getElementById("copyButton");
+      const emailText = document.getElementById("Email");
+      copyEmailButton.addEventListener("click",(event)=>{navigator.clipboard.writeText(emailText.innerHTML);document.getElementById("copyEmailToolTip").innerHTML="Copied:D";})
+    </script>
   </body>
 </html>
