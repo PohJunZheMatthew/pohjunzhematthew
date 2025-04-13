@@ -77,7 +77,7 @@
         FeedBack.style.overflowY = "hidden";
         FeedBack.addEventListener("input", function() {
           this.style.height = "auto";
-          this.style.height = this.scrollHeight + "px";
+          this.style.height = this.scrollHeight-10px + "px";
         });
       }
       window.addEventListener("DOMContentLoaded", load);
@@ -133,8 +133,6 @@
         }
       </style>
       <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button>
-      
-    
     </div>
     <h3>Wanna give feedback on the site?<br>Here is where you can give feedback on the site.</h3>
     <form action="mailto:poh_jun_zhe_matthew@s2025.ssts.edu.sg" method="POST" enctype="text/plain">
