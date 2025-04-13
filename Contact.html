@@ -107,16 +107,17 @@
           opacity: 1;
         }
       </style>
-      <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button> 
-    </div>
+      <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button>
+      
     <script>
       const copyEmailButton = document.getElementById("copyButton");
       const emailText = document.getElementById("Email");
       const tooltip = document.getElementById("copyEmailToolTip");
       copyEmailButton.addEventListener("click", function (e) {
-  console.log(this.className); // logs the className of my_element
-  console.log(e.currentTarget === this); // logs `true`
-});
+        console.log(this.className); // logs the className of my_element
+        console.log(e.currentTarget === this); // logs `true`
+      });
     </script>
+    </div>
   </body>
 </html>
