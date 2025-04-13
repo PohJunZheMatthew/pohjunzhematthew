@@ -110,27 +110,10 @@
       <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button> 
     </div>
     <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const copyEmailButton = document.getElementById("copyButton");
-        const emailText = document.getElementById("Email");
-        const tooltip = document.getElementById("copyEmailToolTip");
-      
-        if (copyEmailButton && emailText && tooltip) {
-          copyEmailButton.addEventListener("click", async () => {
-            try {
-              console.log("Copying")
-              await navigator.clipboard.writeText(emailText.textContent);
-              tooltip.textContent = "Copied :D";
-              console.log("copied");
-            } catch (err) {
-              console.error("Copy failed", err);
-            }
-          });
-        } else {
-          console.warn("Missing elements for copy functionality.");
-        }
-    });
-
+      const copyEmailButton = document.getElementById("copyButton");
+      const emailText = document.getElementById("Email");
+      const tooltip = document.getElementById("copyEmailToolTip");
+      copyEmailButton.addEventListener("click",{console.log("copy");})
     </script>
   </body>
 </html>
