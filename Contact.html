@@ -73,11 +73,11 @@
         }
         //AutoScaling form:
         const FeedBack = document.getElementById("FeedBack");
-        FeedBack.style.height = FeedBack.scrollHeight + "px";
+        FeedBack.style.height = (FeedBack.scrollHeight-80) + "px";
         FeedBack.style.overflowY = "hidden";
         FeedBack.addEventListener("input", function() {
           this.style.height = "auto";
-          this.style.height = (this.scrollHeight-60) + "px";
+          this.style.height = (this.scrollHeight-80) + "px";
         });
       }
       window.addEventListener("DOMContentLoaded", load);
