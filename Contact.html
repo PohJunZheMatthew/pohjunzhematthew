@@ -128,8 +128,12 @@
       <input type="reset" value="reset">
     </form>
     <script>
-      $(document).ready(function(){
-        $('#FeedBack').autosize();
+      const FeedBack = document.getElementById("FeedBack");
+      FeedBack.style.height = textarea.scrollHeight + "px";
+      FeedBack.style.overflowY = "hidden";
+      FeedBack.addEventListener("input", function() {
+        this.style.height = "auto";
+        this.style.height = this.scrollHeight + "px";
       });
     </script>
   </body>
