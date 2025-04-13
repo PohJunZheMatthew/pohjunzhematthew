@@ -118,6 +118,7 @@
         if (copyEmailButton && emailText && tooltip) {
           copyEmailButton.addEventListener("click", async () => {
             try {
+              console.log("Copying")
               await navigator.clipboard.writeText(emailText.textContent);
               tooltip.textContent = "Copied :D";
               console.log("copied");
