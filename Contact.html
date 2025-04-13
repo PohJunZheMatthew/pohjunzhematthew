@@ -56,6 +56,29 @@
           }
         };
         } catch (e) {}
+        //copy script:
+        const copyEmailButton = document.getElementById("copyButton");
+        const emailText = document.getElementById("Email");
+        const tooltip = document.getElementById("copyEmailToolTip");
+    
+        if (copyEmailButton && emailText && tooltip) {
+          copyEmailButton.addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(emailText.textContent);
+              tooltip.textContent = "Copied :D";
+            } catch (err) {
+              console.error("Failed to copy:", err);
+            }
+          });
+        }
+        //AutoScaling form:
+        const FeedBack = document.getElementById("FeedBack");
+        FeedBack.style.height = FeedBack.scrollHeight + "px";
+        FeedBack.style.overflowY = "hidden";
+        FeedBack.addEventListener("input", function() {
+          this.style.height = "auto";
+          this.style.height = this.scrollHeight + "px";
+        });
       }
       window.addEventListener("DOMContentLoaded", load);
     </script>
@@ -111,15 +134,7 @@
       </style>
       <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button>
       
-    <script>
-      const copyEmailButton = document.getElementById("copyButton");
-      const emailText = document.getElementById("Email");
-      const tooltip = document.getElementById("copyEmailToolTip");
-      copyEmailButton.addEventListener("click", function (e) {
-        console.log(this.className); // logs the className of my_element
-        console.log(e.currentTarget === this); // logs `true`
-      });
-    </script>
+    
     </div>
     <h3>Wanna give feedback on the site?<br>Here is where you can give feedback on the site.</h3>
     <form action="mailto:poh_jun_zhe_matthew@s2025.ssts.edu.sg" method="POST" enctype="text/plain">
@@ -127,14 +142,5 @@
       <input type="submit" value="Submit">
       <input type="reset" value="reset">
     </form>
-    <script>
-      const FeedBack = document.getElementById("FeedBack");
-      FeedBack.style.height = FeedBack.scrollHeight + "px";
-      FeedBack.style.overflowY = "hidden";
-      FeedBack.addEventListener("input", function() {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight + "px";
-      });
-    </script>
   </body>
 </html>
