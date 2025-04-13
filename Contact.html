@@ -113,9 +113,10 @@
       const copyEmailButton = document.getElementById("copyButton");
       const emailText = document.getElementById("Email");
       const tooltip = document.getElementById("copyEmailToolTip");
-      copyEmailButton.onclick = (event)=>{
-        console.log("copy");
-      }
+      copyEmailButton.addEventListener("click", function (e) {
+  console.log(this.className); // logs the className of my_element
+  console.log(e.currentTarget === this); // logs `true`
+});
     </script>
   </body>
 </html>
