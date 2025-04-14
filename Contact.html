@@ -6,7 +6,7 @@
       body {
         font-family: 'Quicksand';
       }
-      input[type=sumbit],input[type=reset] {
+      .FormBtn,input[type=sumbit],input[type=reset] {
       width: fit-content;
       min-width: 100px;
       height: 45px;
@@ -21,12 +21,12 @@
       font-family: 'Poppins', sans-serif;
     }
     
-    input[type=sumbit],input[type=reset]:hover {
+    .FormBtn,input[type=sumbit],input[type=reset]:hover {
       background-color: #F2F2F2;
       box-shadow: 0px 0px 20px -18px;
     }
     
-    input[type=sumbit],input[type=reset]:active {
+    .FormBtn,input[type=sumbit],input[type=reset]:active {
       transform: scale(0.95);
     }
     </style>
@@ -96,11 +96,11 @@
         }
         //Form scripts:
         const FeedBack = document.getElementById("FeedBack");
-        FeedBack.style.height = (FeedBack.scrollHeight-80) + "px";
+        FeedBack.style.height = (FeedBack.scrollHeight-70) + "px";
         FeedBack.style.overflowY = "hidden";
         FeedBack.addEventListener("input", function() {
           this.style.height = "auto";
-          this.style.height = (this.scrollHeight-80) + "px";
+          this.style.height = (this.scrollHeight-70) + "px";
         });
         window.onbeforeunload = function(e) {
           if (FeedBack.value.length > 0){
@@ -166,8 +166,8 @@
     </div>
     <h3>Wanna give feedback on the site?<br>Here is where you can give feedback on the site.</h3>
     <form action="mailto:poh_jun_zhe_matthew@s2025.ssts.edu.sg" method="POST" enctype="text/plain">
-      <textarea id="FeedBack" name="Feedback" required style="overflow: hidden; word-wrap: break-word; resize: none;width:600px;  overflow:hidden;  background-color:#FFF;  color:#222;  font-family:Courier, monospace;  font-weight:normal;  font-size:24px;  resize:none;  line-height:40px;  padding-left:100px;  padding-right:100px;  padding-top:45px;  padding-bottom:34px;  background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);  background-repeat:repeat-y, repeat;  -webkit-border-radius:12px;  border-radius:12px;  -webkit-box-shadow: 0px 2px 14px #000;  box-shadow: 0px 2px 14px #000;  border-top:1px solid #FFF;  border-bottom:1px solid #FFF;"></textarea><br>
-      <input type="submit" value="Send">
+      <textarea id="FeedBack" name="Feedback" required style="overflow-wrap: break-word; width: 600px; overflow: hidden; background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); font-family: Courier, monospace; font-weight: normal; font-size: 24px; resize: none; line-height: 40px; padding: 0px 0px 34px 100px; background-image: url(&quot;https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png&quot;), url(&quot;https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png&quot;); background-repeat: repeat-y, repeat; border-radius: 12px; box-shadow: rgb(0, 0, 0) 0px 2px 14px; border-top: 1px solid rgb(255, 255, 255); border-bottom: 1px solid rgb(255, 255, 255);"></textarea><br>
+      <input type="submit" value="Send" class="FormBtn">
       <input type="reset" value="reset">
     </form>
   </body>
