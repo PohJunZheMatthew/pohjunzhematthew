@@ -33,6 +33,7 @@
   </head>
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
       async function load() {
         try {
@@ -165,10 +166,25 @@
       <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button>
     </div>
     <h3>Wanna give feedback on the site?<br>Here is where you can give feedback on the site.</h3>
-    <form action="FeedBackForm.php" method="POST" enctype="text/plain">
+    <form id="feedbackForm">
       <textarea id="FeedBack" name="Feedback" required style="overflow-wrap: break-word; width: 600px; overflow: hidden; background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); font-family: Courier, monospace; font-weight: normal; font-size: 24px; resize: none; line-height: 40px; padding: 0px 0px 34px 100px; background-image: url(&quot;https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png&quot;), url(&quot;https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png&quot;); background-repeat: repeat-y, repeat; border-radius: 12px; box-shadow: rgb(0, 0, 0) 0px 2px 14px; border-top: 1px solid rgb(255, 255, 255); border-bottom: 1px solid rgb(255, 255, 255);"></textarea><br>
       <input type="submit" value="Send" class="FormBtn">
       <input type="reset" value="reset">
     </form>
+    <script>
+      emailjs.init("YOUR_USER_ID");
+      document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+          feedback: document.getElementById("FeedBack").value
+        })
+        .then(function() {
+          alert("Feedback sent successfully!");
+          document.getElementById("feedbackForm").reset();
+        }, function() {
+          alert("Failed to send feedback.");
+        });
+      });
+    </script>
   </body>
 </html>
