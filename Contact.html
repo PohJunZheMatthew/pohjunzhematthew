@@ -173,7 +173,7 @@
     </form>
     <script>
       emailjs.init("YOUR_USER_ID");
-      document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+      document.getElementById("FormBtn").addEventListener("submit", function(e) {
         e.preventDefault();
         emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
           feedback: document.getElementById("FeedBack").value
