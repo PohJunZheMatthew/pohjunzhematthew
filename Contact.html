@@ -166,22 +166,7 @@
       <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button>
     </div>
     <h3>Wanna give feedback on the site?<br>Here is where you can give feedback on the site.</h3>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeCyxWYB9obOgDut0UeEjDXyD4u7XGkNynIqzaOnxuwW2b1Dw/viewform" width="100%" height="auto" id="GoogleFormIframe"></iframe>
-    <script>
-    // Function to adjust the iframe height
-    function resizeIframe() {
-      var iframe = document.getElementById('GoogleFormIframe');
-      if (iframe) {
-        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-        var iframeHeight = iframeDocument.body.scrollHeight;
-        iframe.style.height = iframeHeight + 'px';
-      }
-    }
-    document.getElementById('GoogleFormIframe').onload = function() {
-      resizeIframe();
-    };
-    setInterval(resizeIframe, 0); 
-  </script>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeCyxWYB9obOgDut0UeEjDXyD4u7XGkNynIqzaOnxuwW2b1Dw/viewform" width="100%" style="height:100vh;" id="GoogleFormIframe"></iframe>
 
   </body>
 </html>
