@@ -166,25 +166,6 @@
       <button style="background: none;border: none;cursor: pointer;height: 100%;padding: 0;display: flex;align-items: center;" id="copyButton"><img src="icon_copy.png"><span class="tooltiptext" id="copyEmailToolTip">Copy</span></button>
     </div>
     <h3>Wanna give feedback on the site?<br>Here is where you can give feedback on the site.</h3>
-    <form id="feedbackForm">
-      <textarea id="FeedBack" name="Feedback" required style="overflow-wrap: break-word; width: 600px; overflow: hidden; background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); font-family: Courier, monospace; font-weight: normal; font-size: 24px; resize: none; line-height: 40px; padding: 0px 0px 34px 100px; background-image: url(&quot;https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png&quot;), url(&quot;https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png&quot;); background-repeat: repeat-y, repeat; border-radius: 12px; box-shadow: rgb(0, 0, 0) 0px 2px 14px; border-top: 1px solid rgb(255, 255, 255); border-bottom: 1px solid rgb(255, 255, 255);"></textarea><br>
-      <input type="submit" value="Send" class="FormBtn" id="SendFeedbackBtn">
-      <input type="reset" value="reset">
-    </form>
-    <script>
-      emailjs.init("IeEvINLuV9b79YHu4");
-      document.getElementById("SendFeedbackBtn").addEventListener("submit", function(e) {
-        e.preventDefault();
-        emailjs.send("service_fjk39h5", "template_u9666se", {
-          feedback: document.getElementById("FeedBack").value
-        })
-        .then(function() {
-          alert("Feedback sent successfully!");
-          document.getElementById("feedbackForm").reset();
-        }, function() {
-          alert("Failed to send feedback.");
-        });
-      });
-    </script>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeCyxWYB9obOgDut0UeEjDXyD4u7XGkNynIqzaOnxuwW2b1Dw/viewform" width="100%" height="auto"></iframe>
   </body>
 </html>
