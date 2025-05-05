@@ -165,13 +165,7 @@
                   console.log("Getting script");
                   const scriptText = await scriptResponse.text();
                   console.log("Script loaded");
-                  setTimeout(() => {
-                      try {
-                          eval(scriptText); // Be very cautious
-                      } catch (e) {
-                          console.error('Eval error:', e);
-                      }
-                  }, 1000);
+                  eval(scriptText);
               } catch (err) {
                   console.error('Fetch error:', err);
               }
