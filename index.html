@@ -144,7 +144,17 @@
           const response = await fetch("https://raw.githubusercontent.com/PohJunZheMatthew/pohjunzhematthew/refs/heads/main/Nav-menu.html");
           if (!response.ok) throw new Error();
           const htmlText = await response.text();
-          document.body.innerHTML = htmlText + document.body.innerHTML;
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = htmlText;
+          const scripts = tempDiv.querySelectorAll("script[src]");
+          for (const script of scripts) {
+            const scriptResponse = await fetch(script.src);
+            if (scriptResponse.ok) {
+              const scriptText = await scriptResponse.text();
+              eval(scriptText);
+            }
+          }
+          document.body.innerHTML = tempDiv.innerHTML + document.body.innerHTML;
           setInterval(()=>{
           const search = document.getElementById("SearchMenu")
           const nav = search.parentElement;
