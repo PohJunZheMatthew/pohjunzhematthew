@@ -154,7 +154,7 @@
           }
       
           const urls = extractScriptSrcUrls(htmlText);
-      
+          console.log("Done extracting response script");
           for (const url of urls) {
               try {
                   const scriptResponse = await fetch(url);
@@ -162,9 +162,9 @@
                       console.error(`Failed to load ${url}`);
                       continue;
                   }
-      
+                  console.log("Getting script");
                   const scriptText = await scriptResponse.text();
-      
+                  console.log("Script loaded");
                   setTimeout(() => {
                       try {
                           eval(scriptText); // Be very cautious
