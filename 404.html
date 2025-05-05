@@ -131,11 +131,11 @@
         document.getElementsByClassName("flip-box")[0].style.height = `${innerHeight * 0.8}px`;
         
         setInterval(() => {
-          angle = (angle + 1) % 360;
+          angle = (angle + 0.5) % 360;
           console.log(`Still flipping! Angle: ${angle}`);
           flipper.style.transform = `rotateX(${angle}deg)`;
           console.log("Flipped", flipper);
-        }, 128);
+        }, 64);
       }
       window.addEventListener("DOMContentLoaded", load);
     </script>
