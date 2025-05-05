@@ -143,34 +143,7 @@
         try {
           const response = await fetch("https://raw.githubusercontent.com/PohJunZheMatthew/pohjunzhematthew/refs/heads/main/Nav-menu.html");
           if (!response.ok) throw new Error();
-          function extractScriptSrcUrls(text) {
-              const scriptSrcRegex = /<script\s+[^>]*src=["']([^"']+)["'][^>]*>/gi;
-              const urls = [];
-              let match;
-              while ((match = scriptSrcRegex.exec(text)) !== null) {
-                  urls.push(match[1]);
-              }
-              return urls;
-          }
-      
-          const urls = extractScriptSrcUrls(htmlText);
-          console.log("Done extracting response script");
-          for (const url of urls) {
-              try {
-                  const scriptResponse = await fetch(url);
-                  if (!scriptResponse.ok) {
-                      console.error(`Failed to load ${url}`);
-                      continue;
-                  }
-                  console.log("Getting script");
-                  const scriptText = await scriptResponse.text();
-                  console.log("Script loaded");
-                  eval(scriptText);
-              } catch (err) {
-                  console.error('Fetch error:', err);
-              }
-          }
-          console.log("Adding the HTML text to the document");
+          const htmlText = await response.text();
           document.body.innerHTML = htmlText + document.body.innerHTML;
           console.log("Added the HTML text to the document");
           setInterval(()=>{
@@ -186,6 +159,10 @@
             }
           }
         },0)
+        //DarkMode script:
+        let isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let darkModeImg = document.getElementsByClassName("DarkModeInvertImg");
+        setInterval(()=>{isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;darkModeImg = document.getElementsByClassName("DarkModeInvertImg");for (let i = 0;i<darkModeImg.length;i++){if(isDarkMode){darkModeImg[i].style.filter="invert(1)";}else{darkModeImg[i].style.filter="invert(0)";}},0);
         //Menu script
         const menuButton = document.getElementById("MenuBtn");
         const menuImg = document.getElementById("MenuImg");
