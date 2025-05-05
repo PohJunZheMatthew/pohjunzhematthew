@@ -143,28 +143,38 @@
         try {
           const response = await fetch("https://raw.githubusercontent.com/PohJunZheMatthew/pohjunzhematthew/refs/heads/main/Nav-menu.html");
           if (!response.ok) throw new Error();
-          const htmlText = await response.text();
           function extractScriptSrcUrls(text) {
-            const scriptSrcRegex = /<script\s+[^>]*src=["']([^"']+)["'][^>]*>/gi;
-            const urls = [];
-            let match;
-          
-            while ((match = scriptSrcRegex.exec(text)) !== null) {
-              urls.push(match[1]);
-            }
-            return urls;
+              const scriptSrcRegex = /<script\s+[^>]*src=["']([^"']+)["'][^>]*>/gi;
+              const urls = [];
+              let match;
+              while ((match = scriptSrcRegex.exec(text)) !== null) {
+                  urls.push(match[1]);
+              }
+              return urls;
           }
-          for (const url of extractScriptSrcUrls(htmlText)){
-              const scriptRespnse = await fetch(url);
-              const scriptText = await scriptRespnse.text();
-              setTimeout(()=>{eval(scriptText);},1000)
-          }
-          for (const script of scripts) {
-            const scriptResponse = await fetch(script.src);
-            if (scriptResponse.ok) {
-              const scriptText = await scriptResponse.text();
-              setTimeout(eval(scriptText),50);
-            }
+      
+          const urls = extractScriptSrcUrls(htmlText);
+      
+          for (const url of urls) {
+              try {
+                  const scriptResponse = await fetch(url);
+                  if (!scriptResponse.ok) {
+                      console.error(`Failed to load ${url}`);
+                      continue;
+                  }
+      
+                  const scriptText = await scriptResponse.text();
+      
+                  setTimeout(() => {
+                      try {
+                          eval(scriptText); // Be very cautious
+                      } catch (e) {
+                          console.error('Eval error:', e);
+                      }
+                  }, 1000);
+              } catch (err) {
+                  console.error('Fetch error:', err);
+              }
           }
           document.body.innerHTML = htmlText + document.body.innerHTML;
           setInterval(()=>{
