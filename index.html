@@ -176,7 +176,9 @@
                   console.error('Fetch error:', err);
               }
           }
+          console.log("Adding the HTML text to the document");
           document.body.innerHTML = htmlText + document.body.innerHTML;
+          console.log("Added the HTML text to the document");
           setInterval(()=>{
           const search = document.getElementById("SearchMenu")
           const nav = search.parentElement;
