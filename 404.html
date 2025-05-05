@@ -115,6 +115,14 @@
         }
       }
       window.addEventListener("DOMContentLoaded", load);
+      //script:
+      const flipper = document.getElementById('flipper');
+    let angle = 0;
+    document.getElementsByClassName("flip-box")[0].style.height = innerHeight*0.8+"px";
+    setInterval(() => {
+      angle = (angle + 1) % 360;
+      flipper.style.transform = `rotateX(${angle}deg)`;
+    }, 128);
     </script>
   <div class="flip-box" >
     <div class="flip-box-inner" id="flipper">
@@ -128,15 +136,5 @@
       </div>
     </div>
   </div>
-  <script>
-    const flipper = document.getElementById('flipper');
-    let angle = 0;
-    document.getElementsByClassName("flip-box")[0].style.height = innerHeight*0.8+"px";
-    setInterval(() => {
-      angle = (angle + 1) % 360;
-      flipper.style.transform = `rotateX(${angle}deg)`;
-    }, 128);
-  </script>
-
 </body>
 </html>
