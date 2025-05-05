@@ -5,13 +5,16 @@
     body {
       font-family: Consolas, monaco, monospace;
     }
-
+    :root {
+        color-scheme: light dark;
+    }
     .flip-box {
       background-color: transparent;
       width: 90%;
       margin:auto;
       border: 1px solid #f1f1f1;
       perspective: 1000px;
+      padding-top: 10vh;
     }
 
     .flip-box-inner {
@@ -113,7 +116,7 @@
       }
       window.addEventListener("DOMContentLoaded", load);
     </script>
-  <div class="flip-box">
+  <div class="flip-box" >
     <div class="flip-box-inner" id="flipper">
       <div class="flip-box-front">
         <h1>Error 404:Page not found</h1>
@@ -130,9 +133,9 @@
     let angle = 0;
     document.getElementsByClassName("flip-box")[0].style.height = innerHeight*0.8+"px";
     setInterval(() => {
-      angle = (angle + 0.5) % 360;
+      angle = (angle + 1) % 360;
       flipper.style.transform = `rotateX(${angle}deg)`;
-    }, 32);
+    }, 128);
   </script>
 
 </body>
