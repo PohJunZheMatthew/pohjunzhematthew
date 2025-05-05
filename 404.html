@@ -12,7 +12,6 @@
       background-color: transparent;
       width: 90%;
       margin:auto;
-      border: 1px solid #f1f1f1;
       perspective: 1000px;
       padding-top: 10vh;
     }
@@ -135,7 +134,7 @@
         angle = (angle + 1) % 360;
         console.log("still Flipping! at angle:"+angle.toString())
         flipper.style.transform = `rotateX(${angle}deg)`;
-        console.log("Flipped it!")
+        console.log("Flipped "+flipper"!")
       }, 128);
     </script>
 </body>
