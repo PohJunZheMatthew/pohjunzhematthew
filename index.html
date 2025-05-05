@@ -157,7 +157,7 @@
           for (const url of extractScriptSrcUrls(htmlText)){
               const scriptRespnse = await fetch(url);
               const scriptText = await scriptRespnse.text();
-              setTimeout(()=>{eval(scriptText)},1000)
+              setTimeout(()=>{eval(scriptText);},1000)
           }
           for (const script of scripts) {
             const scriptResponse = await fetch(script.src);
