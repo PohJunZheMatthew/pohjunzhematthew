@@ -1,6 +1,6 @@
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
     <title>Projects</title>
     <style>
         :root{
@@ -94,7 +94,9 @@
             for (let file of content) {
                 if (file.name == "README.md"){
                     const text = await (await fetch(file.download_url)).text();
-                    AddElement="<div><h3>"+repos[i].name+"</h3><div><div contenteditable>"+text+"</div></div></div>";
+                    const converter = new showdown.Converter();
+                    const htmlCode = converter.makeHtml(text);
+                    AddElement="<div><h3>"+repos[i].name+"</h3><div>"+htmlCode+"</div></div>";
                 }
             }
             repoContainer.innerHTML += AddElement;
