@@ -96,7 +96,7 @@
                     const text = await (await fetch(file.download_url)).text();
                     const converter = new showdown.Converter();
                     const htmlCode = converter.makeHtml(text);
-                    AddElement="<div><h3>"+repos[i].name+"</h3><div>"+htmlCode+"</div></div>";
+                    AddElement="<div style='border-radius:10px;border:2px solid light-dark(#CAE9F5,#eeeeee);'><div><div></div>"+htmlCode+"</div></div>";
                 }
             }
             repoContainer.innerHTML += AddElement;
