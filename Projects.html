@@ -83,6 +83,17 @@
     <script>
       async function setUp(){
         try{
+  		    function getDescendants(element){
+  					let descendants = [];
+  				  for (let i = 0; i < element.childNodes.length; i++) {
+  				    let node = element.childNodes[i];
+  				    descendants.push(node);
+  				    if (node.nodeType === 1) { // Check if it's an element node
+  				      descendants = descendants.concat(getDescendants(node));
+  				    }
+  				  }
+  				  return descendants;
+  				}
           const response = await fetch("https://api.github.com/users/PohJunZheMatthew");
           const profile = await response.json();
           const repos_url = profile.repos_url;
