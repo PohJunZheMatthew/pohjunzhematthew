@@ -6,8 +6,8 @@
         :root{
             color-scheme: light dark;
         }
-        .ReposContainer > *{
-	          font-family: Dejavu Sans;
+        .ReposContainer {
+	    font-family: Dejavu Sans;
         }
     </style>
   </head>
@@ -81,7 +81,7 @@
     <h5 style="text-align: center;display: inline;font-size:2em;border-bottom: 3px solid #f9dd94;">My repos on Github:</h5>
     <div style="width:95%;margin:auto;border-radius:15px;border:1px solid light-dark(#CAE9F5,#eeeeee);background-color:light-dark(#ffffff,#323232);display:flex;flex-direction:column;" id="ReposContainer"></div>
     <script>
-      async function setupRepos(){
+      async function setUp(){
         try{
           const response = await fetch("https://api.github.com/users/PohJunZheMatthew");
           const profile = await response.json();
@@ -107,8 +107,52 @@
         }catch(error){
             console.error(error)
         }
+				function getDescendants(element){
+					let descendants = [];
+				  for (let i = 0; i < element.childNodes.length; i++) {
+				    let node = element.childNodes[i];
+				    descendants.push(node);
+				    if (node.nodeType === 1) { // Check if it's an element node
+				      descendants = descendants.concat(getDescendants(node));
+				    }
+				  }
+				  return descendants;
+				}
+				for(let element of getDescendants(document.getElementById("ReposContainer"))){
+					element.style.borderRadius = "5px";
+					element.addEventListener("mouseenter",(e)=>{element.style.border="1px solid light-dark(#323232, #ffffff);";})
+					element.addEventListener("mouseleave",(e)=>{element.style.border="";})
+					if (element.tagName == "code"){
+						element.style.backgroundColor = "#f4f4f4";
+				    element.style.padding = "5px 10px";
+				    element.style.borderRadius = "4px";
+				    element.style.display = "block";
+				    element.style.whiteSpace = "pre-wrap";
+				    element.style.overflowX = "auto";
+				    element.style.fontFamily = "monospace";
+				    element.style.fontSize = "0.95em";
+				
+				    // Optional: Add a copy button
+				    const copyButton = document.createElement("button");
+				    copyButton.innerText = "Copy";
+				    copyButton.style.margin = "5px";
+				    copyButton.style.float = "right";
+				    copyButton.onclick = () => {
+				        navigator.clipboard.writeText(element.textContent);
+				        copyButton.innerText = "Copied!";
+				        setTimeout(() => copyButton.innerText = "Copy", 2000);
+				    };
+				
+				    const wrapper = document.createElement("div");
+				    wrapper.style.position = "relative";
+				    wrapper.style.marginBottom = "10px";
+				    element.parentNode.insertBefore(wrapper, element);
+				    wrapper.appendChild(copyButton);
+				    wrapper.appendChild(element);
+					}
+				}
       }
-      window.addEventListener("load",setupRepos);
+      window.addEventListener("load",setUp);
     </script>
   </body>
 </html>
