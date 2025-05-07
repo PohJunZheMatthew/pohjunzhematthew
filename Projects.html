@@ -93,65 +93,63 @@
             const reposContentURL = `https://api.github.com/repos/PohJunZheMatthew/${repos[i].name}/contents`;
             const repsonseFromContent = await fetch(reposContentURL);
             const content = await repsonseFromContent.json();
-            let AddElement = "<div><a href="+repos[i].html_url+">"+repos[i].name+"</a><div><p>"+repos[i].description+"</p></div></div>";
+            let AddElement = "<div style=style='background-color: #ffffff;color: #24292e;border: 1px solid #d0d7de;border-radius: 6px;padding: 24px;margin: 16px 0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';box-shadow: 0 1px 3px rgba(27,31,35,.1);overflow-x: auto;max-width: 100%;'><a href="+repos[i].html_url+">"+repos[i].name+"</a><div><p>"+repos[i].description+"</p></div></div>";
             for (let file of content) {
                 if (file.name == "README.md"){
                     const text = await (await fetch(file.download_url)).text();
                     const converter = new showdown.Converter();
                     const htmlCode = converter.makeHtml(text);
-                    AddElement="<div style='border-radius:10px;border:2px solid light-dark(#CAE9F5,#eeeeee);'><div><div></div>"+htmlCode+"</div></div>";
+                    AddElement="<div style='style='background-color: #ffffff;color: #24292e;border: 1px solid #d0d7de;border-radius: 6px;padding: 24px;margin: 16px 0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';box-shadow: 0 1px 3px rgba(27,31,35,.1);overflow-x: auto;max-width: 100%;''><div><div></div>"+htmlCode+"</div></div>";
                 }
+            }
+            // Apply GitHub-like styles to specific markdown tags
+            for (let element of getDescendants(repoContainer)) {
+              if (element.nodeType !== 1) continue;
+            
+              switch (element.tagName) {
+                case "H1":
+                case "H2":
+                case "H3":
+                  element.style.borderBottom = "1px solid #eaecef";
+                  element.style.paddingBottom = "0.3em";
+                  element.style.marginTop = "1.5em";
+                  element.style.fontWeight = "600";
+                  break;
+                case "P":
+                  element.style.lineHeight = "1.6";
+                  element.style.margin = "1em 0";
+                  break;
+                case "PRE":
+                  element.style.backgroundColor = "#f6f8fa";
+                  element.style.padding = "16px";
+                  element.style.borderRadius = "6px";
+                  element.style.overflowX = "auto";
+                  element.style.fontFamily = "monospace";
+                  break;
+                case "CODE":
+                  element.style.backgroundColor = "#f6f8fa";
+                  element.style.padding = "2px 6px";
+                  element.style.borderRadius = "4px";
+                  element.style.fontSize = "85%";
+                  break;
+                case "A":
+                  element.style.color = "#0969da";
+                  element.style.textDecoration = "none";
+                  element.addEventListener("mouseover", () => {
+                    element.style.textDecoration = "underline";
+                  });
+                  element.addEventListener("mouseout", () => {
+                    element.style.textDecoration = "none";
+                  });
+                  break;
+              }
             }
             repoContainer.innerHTML += AddElement;
           }
         }catch(error){
             console.error(error)
         }
-				function getDescendants(element){
-					let descendants = [];
-				  for (let i = 0; i < element.childNodes.length; i++) {
-				    let node = element.childNodes[i];
-				    descendants.push(node);
-				    if (node.nodeType === 1) { // Check if it's an element node
-				      descendants = descendants.concat(getDescendants(node));
-				    }
-				  }
-				  return descendants;
-				}
-				for(let element of getDescendants(document.getElementById("ReposContainer"))){
-					if (element.nodeType !== 1) continue;
-					element.style.borderRadius = "5";
-					element.addEventListener("mouseenter",(e)=>{element.style.border="1px solid light-dark(#323232, #ffffff);";})
-					element.addEventListener("mouseleave",(e)=>{element.style.border="";})
-					if (element.tagName == "code"){
-						element.style.backgroundColor = "#f4f4f4";
-				    element.style.padding = "5px 10px";
-				    element.style.borderRadius = "4px";
-				    element.style.display = "block";
-				    element.style.whiteSpace = "pre-wrap";
-				    element.style.overflowX = "auto";
-				    element.style.fontFamily = "monospace";
-				    element.style.fontSize = "0.95em";
 				
-				    // Optional: Add a copy button
-				    const copyButton = document.createElement("button");
-				    copyButton.innerText = "Copy";
-				    copyButton.style.margin = "5px";
-				    copyButton.style.float = "right";
-				    copyButton.onclick = () => {
-						navigator.clipboard.writeText(element.textContent);
-						copyButton.innerText = "Copied!";
-						setTimeout(() => copyButton.innerText = "Copy", 2000);
-					    };
-				
-				    const wrapper = document.createElement("div");
-				    wrapper.style.position = "relative";
-				    wrapper.style.marginBottom = "10px";
-				    element.parentNode.insertBefore(wrapper, element);
-				    wrapper.appendChild(copyButton);
-				    wrapper.appendChild(element);
-					}
-				}
       }
       window.addEventListener("load",setUp);
     </script>
