@@ -119,7 +119,7 @@
 				  return descendants;
 				}
 				for(let element of getDescendants(document.getElementById("ReposContainer"))){
-					element.style.borderRadius = "5px";
+					element.style.borderRadius = "5";
 					element.addEventListener("mouseenter",(e)=>{element.style.border="1px solid light-dark(#323232, #ffffff);";})
 					element.addEventListener("mouseleave",(e)=>{element.style.border="";})
 					if (element.tagName == "code"){
@@ -138,10 +138,10 @@
 				    copyButton.style.margin = "5px";
 				    copyButton.style.float = "right";
 				    copyButton.onclick = () => {
-				        navigator.clipboard.writeText(element.textContent);
-				        copyButton.innerText = "Copied!";
-				        setTimeout(() => copyButton.innerText = "Copy", 2000);
-				    };
+						navigator.clipboard.writeText(element.textContent);
+						copyButton.innerText = "Copied!";
+						setTimeout(() => copyButton.innerText = "Copy", 2000);
+					    };
 				
 				    const wrapper = document.createElement("div");
 				    wrapper.style.position = "relative";
