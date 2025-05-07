@@ -119,6 +119,7 @@
 				  return descendants;
 				}
 				for(let element of getDescendants(document.getElementById("ReposContainer"))){
+					if (element.nodeType !== 1) continue;
 					element.style.borderRadius = "5";
 					element.addEventListener("mouseenter",(e)=>{element.style.border="1px solid light-dark(#323232, #ffffff);";})
 					element.addEventListener("mouseleave",(e)=>{element.style.border="";})
